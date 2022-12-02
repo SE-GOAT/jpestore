@@ -54,6 +54,7 @@ public class CatalogActionBean extends AbstractActionBean {
   private static final String UPDATE_ANIMAL_INFO_BY_ADMIN = "/WEB-INF/jsp/catalog/UpdateAnimalInfoFormByAdmin.jsp";
   private static final String INSERT_ANIMAL_INFO_BY_ADMIN = "/WEB-INF/jsp/catalog/InsertAnimalInfoByAdmin.jsp";
   public static final String UPDATE_ANIMAL_ENV_VALUE_ADMIN = "/WEB-INF/jsp/catalog/UpdateEnvValueByAdmin.jsp";
+  public static final String MODIFY_ENV_VALUES_BY_ADMIN = "/WEB-INF/jsp/catalog/ModifyEnvValueFormByAdmin.jsp";
   @SpringBean
   private transient CatalogService catalogService;
   @SpringBean
@@ -522,6 +523,26 @@ public class CatalogActionBean extends AbstractActionBean {
   public Resolution deleteEnvColumnByAdmin() {
     if (accountService.isAdmin(username)) {
       catalogService.deleteEnvColumnByAdmin(categoryId, envColumnName);
+      product = catalogService.getProduct(productId);
+      animalInfoList = catalogService.getAnimalInfo(categoryId, productId);
+      productEnvList = catalogService.getProductEnvList(categoryId, productId);
+      return new ForwardResolution(SETTING_ITEM_BY_ADMIN);
+    } else {
+      return new ForwardResolution(ACCESS_RESTRICTION);
+    }
+  }
+
+  public Resolution modifyEnvValuesFormByAdmin() {
+    if (accountService.isAdmin(username)) {
+      productEnvValueList = catalogService.getProductEnvValueList(categoryId, envColumnName);
+      return new ForwardResolution(MODIFY_ENV_VALUES_BY_ADMIN);
+    } else {
+      return new ForwardResolution(ACCESS_RESTRICTION);
+    }
+  }
+  public Resolution modifyEnvValuesByAdmin() {
+    if (accountService.isAdmin(username)) {
+//      catalogService.modifyEnvValuesByAdmin(categoryId, envColumnName);
       product = catalogService.getProduct(productId);
       animalInfoList = catalogService.getAnimalInfo(categoryId, productId);
       productEnvList = catalogService.getProductEnvList(categoryId, productId);

@@ -40,8 +40,8 @@
                inner join ENVIRONMENTCOLUMN E on PRODUCTENVIRONMENT.environmentcolumnId = E.environmentcolumnId
                inner join ENVCOLUMN E2 on E.envcolumnid = E2.envcolumnid
                inner join ENVITEMLIST E3 on PRODUCTENVIRONMENT.envitemlistid = E3.envitemlistid
-      where PRODUCTENVIRONMENT.productid = 'AV-CB-01'
-        and E.catid = 'BIRDS'
+      where PRODUCTENVIRONMENT.productid = #{productId}
+        and E.catid = #{categoryId}
         and E.status = true;
   </select>
 
