@@ -199,6 +199,7 @@ public class CatalogService {
     return environmentMapper.getEnvItem(categoryId, envColumnName);
   }
 
-  public void insertProductByAdmin(Product product) {
+  public void settingUserEnv(String categoryId, String envColumnName, String username, String envValue) {
+    environmentMapper.settingUserEnv(categoryId, envColumnName, username, envValue);
   }
 }
