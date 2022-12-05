@@ -198,4 +198,7 @@ public class CatalogService {
   public List<EnvironmentByProduct> getEnvItem(String categoryId, String envColumnName) {
     return environmentMapper.getEnvItem(categoryId, envColumnName);
   }
+
+  public void insertProductByAdmin(Product product) {
+  }
 }

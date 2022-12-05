@@ -579,6 +579,15 @@ public class CatalogActionBean extends AbstractActionBean {
     }
     return new ForwardResolution(USER_ENV_INFO);
   }
+
+  public Resolution insertProductByAdmin() {
+    catalogService.insertProductByAdmin(product);
+    return new RedirectResolution(CatalogActionBean.class, "viewProductListByAdmin");
+  }
+
+  public Resolution insertProductFormByAdmin() {
+    return new ForwardResolution();
+  }
   /**
    * Clear.
    */
