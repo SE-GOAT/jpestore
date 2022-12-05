@@ -3,6 +3,7 @@ package org.mybatis.jpetstore.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.jpetstore.domain.EnvironmentByProduct;
 import org.mybatis.jpetstore.domain.EnvironmentByUser;
+import org.mybatis.jpetstore.domain.Product;
 import org.mybatis.jpetstore.domain.ProductEnvValue;
 
 import java.util.List;

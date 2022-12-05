@@ -35,4 +35,6 @@ public interface ProductMapper {
   List<Product> getProductListByAdmin();
 
   List<Product> getProductListAboutCategoryByAdmin(String categoryId);
+
+  void insertProductByAdmin(Product product);
 }
